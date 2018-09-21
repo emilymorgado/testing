@@ -4,17 +4,23 @@ import App from 'components/App';
 import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
 
+let wrapped;
+
+beforeEach(() => {
+  wrapped = shallow(<App />);
+  // wrapped means: component with additional functionality on top
+  // Note that wrapped is scoped within this function
+  // The wrapped consts in the it statements are not the same
+  // as this wrapped
+  // For this reason, we initialize wrapped before beforeEach()
+});
 
 it('shows a comment box', () => {
-  const wrapped = shallow(<App />);
-  // wrapped means: component with additional functionality on top
-
   expect(wrapped.find(CommentBox).length).toEqual(1);
   // find returns an array with every instance of CommentBox that it finds
 });
 
 it('shows a comment list', () => {
-  const wrapped = shallow(<App />);
   expect(wrapped.find(CommentList).length).toEqual(1);
 });
 
