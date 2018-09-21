@@ -1,5 +1,6 @@
 // We could have called this file App.js
 // But that might be less clear
+// I've been using: <yarn test> to run the tests
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -12,7 +13,10 @@ it('shows a comment box', () => {
   // Here we can inpect the div that lives inside JSDOM
   // Looks inside the div
   // and checks tot see if the CommentBox is in there
-  console.log(div.innHTML);
+
+  // console.log(div.innerHTML);
+  // This isn't a good test
+  expect(div.innerHTML).toContain('Comment box');
 
   // Clean-up: for performance
   // Destroys leftover objects
