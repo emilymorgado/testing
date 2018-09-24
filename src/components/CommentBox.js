@@ -8,6 +8,7 @@ class CommentBox extends Component {
   handleChange = event => {
     this.setState({ comment: event.target.value });
     // The test's mock event: { target: { value: 'new comment' }}
+    // setState() causes an asychronous rerendering (gets queued up)
   };
 
   handleSubmit = event => {
