@@ -4,11 +4,13 @@ import { createStore } from 'redux';
 
 import reducers from 'reducers';
 
-export default (props) => {
+export default ({ children, initialState = {} }) => {
   return (
-    <Provider store={createStore(reducers, {})}>
-      {props.children}
+    <Provider store={createStore(reducers, initialState)}>
+      {children}
     </Provider>
   )
 }
 // This component makes accessing the redux store easy
+// Note: props.initialState is for testing purposes,
+// That's why it's default is {}
