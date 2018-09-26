@@ -18,7 +18,8 @@ class CommentBox extends Component {
 
   shouldNavigateAway() {
     if (!this.props.auth) {
-      console.log('I need to leave!!!');
+      // This acts as a forced redirect
+      this.props.history.push('/');
     }
   }
 
