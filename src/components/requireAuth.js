@@ -23,8 +23,9 @@ export default (ChildComponent) => {
       }
     }
 
+    // {...this.props} passes in any props that were passed to the HOC
     render() {
-      return <ChildComponent />;
+      return <ChildComponent {...this.props} />;
     }
   }
 
