@@ -7,6 +7,21 @@ class CommentBox extends Component {
     comment: ''
   };
 
+  componentDidMount() {
+    this.shouldNavigateAway();
+  }
+
+  // Our component just received new props (hence the update)
+  componentDidUpdate() {
+    this.shouldNavigateAway();
+  }
+
+  shouldNavigateAway() {
+    if (!this.props.auth) {
+      console.log('I need to leave!!!');
+    }
+  }
+
   handleChange = event => {
     this.setState({ comment: event.target.value });
     // The test's mock event: { target: { value: 'new comment' }}
@@ -41,4 +56,8 @@ class CommentBox extends Component {
   }
 }
 
-export default connect(null, actions)(CommentBox);
+function mapStateToProps(state) {
+  return { auth: state.auth };
+}
+
+export default connect(mapStateToProps, actions)(CommentBox);
